@@ -9,6 +9,7 @@ module.exports = {
                 name: user.name,
                 username: user.username,
                 password: user.password,
+                email: user.email,
                 iat: Date.now()
             }
             let token = await jwt.sign(payload, process.env.SECRET);

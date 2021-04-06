@@ -96,8 +96,9 @@ async function login(req, res, next) {
         let dbUser = searchResult;
         let match = await bCrypt.compare(reqBody.password, dbUser.password);
         if (match) {
+            const {password, ...userNoPass} = dbUser;
             if (reqBody.getHash) {
-                return res.send({ jwt: jwtMddw.createToken(dbUser), user: dbUser, ack: true });
+                return res.send({ jwt: await jwtMddw.createToken(dbUser), user: dbUser, ack: true });
             } else {
                 return res.send({ user: dbUser, ack: true });
             }

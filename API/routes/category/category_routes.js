@@ -5,7 +5,7 @@ const router = require('express').Router();
 const jwt = require('../../middleware/jwt');
 
 //GET
-router.get('/:id?', jwt.decodeToken(), controller.getCategories);
+router.get('/:id?', jwt.decodeToken, controller.getCategories);
 
 //POST
 router.post('', controller.newCategory);

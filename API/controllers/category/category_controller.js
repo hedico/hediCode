@@ -1,6 +1,6 @@
 'use strict'
 
-const categoryModel = require('../../models/category');
+const categoryModel = require('../../models/category/category');
 
 async function getCategories(req, res, next) {
     try {
